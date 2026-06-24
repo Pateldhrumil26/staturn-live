@@ -1,0 +1,23 @@
+import { Router } from 'express';
+import {
+  getProducts,
+  getProductById,
+  createProduct,
+  updateProduct,
+  deleteProduct,
+} from '../controllers/productController.js';
+import { protect, adminOnly } from '../middleware/auth.js';
+import { upload } from '../middleware/upload.js';
+
+const router = Router();
+
+// Public routes
+router.get('/', getProducts);
+router.get('/:id', getProductById);
+
+// Admin routes with image array upload support
+router.post('/', protect, adminOnly, upload.array('images', 5), createProduct);
+router.put('/:id', protect, adminOnly, upload.array('images', 5), updateProduct);
+router.delete('/:id', protect, adminOnly, deleteProduct);
+
+export default router;
