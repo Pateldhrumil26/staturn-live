@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+
 import API from '../services/api.js';
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
 import { Layers, Lightbulb, ClipboardCopy, Mail, HeartHandshake, Compass, Users } from 'lucide-react';
