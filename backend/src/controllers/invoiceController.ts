@@ -224,7 +224,7 @@ export const updateInvoice = async (req: Request, res: Response) => {
       if (products.length === 0) {
         return res.status(400).json({ success: false, message: 'At least one product is required' });
       }
-      invoice.products = products;
+      invoice.products = products as any;
     }
 
     // If gstPercentage is provided, or products are updated, recalculate
